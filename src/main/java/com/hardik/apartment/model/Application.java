@@ -16,7 +16,7 @@ public class Application {
 	@Id
 	@GeneratedValue
 	@Column(name="application_id")
-	private int id;
+	private Long id;
 	@Column(name="applicant_firstName")
 	private String firstName;
 	@Column(name="applicant_lastName")
@@ -35,9 +35,11 @@ public class Application {
     private String numberOfResident;
 	@Column(name="applicant_occupation")
     private String occupation;
-	public Application(int id, String firstName, String lastName, String email, String phone, String apartmentType,
+	
+	public Application() {};
+	public Application(Long id, String firstName, String lastName, String email, String phone, String apartmentType,
 			String startingDate, String leaseDuration, String numberOfResident, String occupation) {
-		super();
+	
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -49,10 +51,10 @@ public class Application {
 		this.numberOfResident = numberOfResident;
 		this.occupation = occupation;
 	}
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getFirstName() {

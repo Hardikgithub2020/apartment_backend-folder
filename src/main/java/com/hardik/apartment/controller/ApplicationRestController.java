@@ -33,7 +33,7 @@ public class ApplicationRestController {
 	@Autowired
 	  private ApplicationRepository applicationRepository;
 	  
-	  //GET ALL UNIT INFO
+	  //GET ALL Application INFO
 	  
 	  @GetMapping("/applications")
 	  public List<Application> getAllApplication(Model model) {
@@ -42,7 +42,7 @@ public class ApplicationRestController {
 	  
 	  // Get employee by id
 	  
-	  	@GetMapping("/application/{id}")
+	  	@GetMapping("/applications/{id}")
 	    public ResponseEntity<Application> getApplicationById1(@PathVariable(value = "id") Long applicationId)
 	     throws ResourceNotFoundException {
 	     Application application = applicationRepository.findById(applicationId)
@@ -52,7 +52,7 @@ public class ApplicationRestController {
 	    
 	  // save employee
 	    
-	    @PostMapping("/application")
+	    @PostMapping("/applications")
 		 public Application createApplication(@Validated @RequestBody Application application) {
 	    	
 		    return applicationRepository.save(application);

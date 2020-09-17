@@ -17,27 +17,29 @@ public class Unit {
 	@Id
 	@GeneratedValue
 	@Column(name="unique_Id")
-	private int id;
+	private Long id;
 	@Column(name="unit_Number")
 	private int unit_number;
 	@Column (name="unit_type")
 	private String unit_type;
 	@Column(name="unit_availability")
 	private String unit_availability;
+	
+	public Unit() {};
 
-	public Unit(int id, int unit_number, String unit_type, String unit_availability) {
-		super();
+	public Unit(Long id, int unit_number, String unit_type, String unit_availability) {
+		
 		this.id = id;
 		this.unit_number = unit_number;
 		this.unit_type = unit_type;
 		this.unit_availability = unit_availability;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

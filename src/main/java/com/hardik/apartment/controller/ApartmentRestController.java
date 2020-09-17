@@ -37,7 +37,7 @@ public class ApartmentRestController {
 	  
 	  // Get employee by id
 	  
-	  	@GetMapping("/unit/{id}")
+	  	@GetMapping("/units/{id}")
 	    public ResponseEntity<Unit> getUnitById1(@PathVariable(value = "id") Long unitId)
 	     throws ResourceNotFoundException {
 	     Unit unit = unitRepository.findById(unitId)
@@ -47,7 +47,7 @@ public class ApartmentRestController {
 	    
 	  // save employee
 	    
-	    @PostMapping("/unit")
+	    @PostMapping("/units")
 		 public Unit createUnit(@Validated @RequestBody Unit unit) {
 	    	
 		    return unitRepository.save(unit);
