@@ -7,9 +7,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -45,7 +47,7 @@ public class ApartmentRestController {
 	     return ResponseEntity.ok().body(unit);
 	    }
 	    
-	  // save employee
+	  // save Unit
 	    
 	    @PostMapping("/units")
 		 public Unit createUnit(@Validated @RequestBody Unit unit) {
@@ -55,38 +57,52 @@ public class ApartmentRestController {
 		 }
 	   
 	    
-	//  //Delete Employee
-	//    
-//		@DeleteMapping("/employees/{id}")
-//		void deleteEmployee(@PathVariable Long id) {
-//			
-//			employeeRepository.deleteById(id);
-//			    
-//		}
-	//  
-	//  //Save Employee by ID 
-	//  
-	//  @PostMapping("/employees/{id}")
-	//  Employee createOrSaveEmployee(@RequestBody Employee newEmployee) {
-//		  
-//		  	return this.employeeRepository.save(newEmployee);  
-//		  	
-	//  }
-	//  
-	//  // Update employee by PUT method
-	//  
-	//  @PutMapping("/employees/{id}")
-	//  Employee updateEmployee(@RequestBody Employee newEmployee, @PathVariable Long id) {
+	//Delete Unit
+	    
+	@DeleteMapping("/units/{id}")
+		void deleteUnit(@PathVariable Long id) {
+			
+			unitRepository.deleteById(id);
+			    
+		}
+	  
+	 //Save Employee by ID 
+	  
+	    @PostMapping("/units/{id}")
+	    Unit createOrSaveUnit(@RequestBody Unit newUnit) {
+		  
+	  	return this.unitRepository.save(newUnit);  
+		  	
+	  }
+	  
+	 // Update employee by PUT method
+	 
+	 @PutMapping("/units/{id}")
+	 Unit updateUnit(@RequestBody Unit newUnit, @PathVariable Long id) {
 	//
-//	      return employeeRepository.findById(id).map(employee -> {
-//	          employee.setFirstName(newEmployee.getFirstName());
-//	          employee.setLastName(newEmployee.getLastName());
-//	          employee.setEmail(newEmployee.getEmail());
-//	          return employeeRepository.save(employee);
-//	      }).orElseGet(() -> {
-//	          newEmployee.setId(id);
-//	          return employeeRepository.save(newEmployee);
-//	      });
-	//  }
+	      return unitRepository.findById(id).map(unit -> {
+	          unit.setUnit_number(newUnit.getUnit_number());
+	          unit.setUnit_type(newUnit.getUnit_type());
+	          unit.setUnit_availability(newUnit.getUnit_availability());
+	          return unitRepository.save(unit);
+	      }).orElseGet(() -> {
+          newUnit.setId(id);
+	          return unitRepository.save(newUnit);
+	      });
+	  }
+	          
+	       //   @PutMapping("/employees/{id}")
+	      //  Employee updateEmployee(@RequestBody Employee newEmployee, @PathVariable Long id) {
+	      //
+//	            return employeeRepository.findById(id).map(employee -> {
+//	                employee.setFirstName(newEmployee.getFirstName());
+//	                employee.setLastName(newEmployee.getLastName());
+//	                employee.setEmail(newEmployee.getEmail());
+//	                return employeeRepository.save(employee);
+//	            }).orElseGet(() -> {
+//	                newEmployee.setId(id);
+//	                return employeeRepository.save(newEmployee);
+//	            });
+	      //  }
 
 }

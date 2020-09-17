@@ -10,9 +10,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -60,39 +62,45 @@ public class ApplicationRestController {
 		 }
 	   
 	    
-	//  //Delete Employee
-	//    
-//		@DeleteMapping("/employees/{id}")
-//		void deleteEmployee(@PathVariable Long id) {
-//			
-//			employeeRepository.deleteById(id);
-//			    
-//		}
-	//  
-	//  //Save Employee by ID 
-	//  
-	//  @PostMapping("/employees/{id}")
-	//  Employee createOrSaveEmployee(@RequestBody Employee newEmployee) {
-//		  
-//		  	return this.employeeRepository.save(newEmployee);  
-//		  	
-	//  }
-	//  
-	//  // Update employee by PUT method
-	//  
-	//  @PutMapping("/employees/{id}")
-	//  Employee updateEmployee(@RequestBody Employee newEmployee, @PathVariable Long id) {
-	//
-//	      return employeeRepository.findById(id).map(employee -> {
-//	          employee.setFirstName(newEmployee.getFirstName());
-//	          employee.setLastName(newEmployee.getLastName());
-//	          employee.setEmail(newEmployee.getEmail());
-//	          return employeeRepository.save(employee);
-//	      }).orElseGet(() -> {
-//	          newEmployee.setId(id);
-//	          return employeeRepository.save(newEmployee);
-//	      });
-	//  }
+   //Delete Application
+	   
+	    @DeleteMapping("/applications/{id}")
+	    void deleteApplication(@PathVariable Long id) {
+			
+			applicationRepository.deleteById(id);
+			    
+		}
+	 
+	//Save Application by ID 
+	 
+	  @PostMapping("/applications/{id}")
+	  Application createOrSaveEmployee(@RequestBody Application newApplication) {
+		  
+		  	return this.applicationRepository.save(newApplication);  
+		  	
+	  }
+	 
+	// Update employee by PUT method
+	 
+	  @PutMapping("/applications/{id}")
+	  	Application updateApplication(@RequestBody Application newApplication, @PathVariable Long id) {
+	
+	    return applicationRepository.findById(id).map(application -> {
+	          application.setFirstName(newApplication.getFirstName());
+          application.setLastName(newApplication.getLastName());
+	          application.setEmail(newApplication.getEmail());
+	          application.setPhone(newApplication.getPhone());
+	          application.setApartmentType(newApplication.getApartmentType());
+	          application.setStartingDate(newApplication.getStartingDate());
+	          application.setLeaseDuration(newApplication.getLeaseDuration());
+	          application.setNumberOfResident(newApplication.getNumberOfResident());
+	          application.setOccupation(newApplication.getOccupation());          
+	          return applicationRepository.save(application);
+	      }).orElseGet(() -> {
+	          newApplication.setId(id);
+	          return applicationRepository.save(newApplication);
+      });
+	  }
 
 }
 
