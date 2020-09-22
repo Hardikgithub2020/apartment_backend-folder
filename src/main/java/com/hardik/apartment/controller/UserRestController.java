@@ -61,7 +61,7 @@ public class UserRestController {
 	    
 	//Delete Unit
 	    
-	@DeleteMapping("/user/{id}")
+	@DeleteMapping("/users/{id}")
 		void deleteUnit(@PathVariable Long id) {
 			
 			userRepository.deleteById(id);
