@@ -21,7 +21,7 @@ import com.hardik.apartment.model.Unit;
 import com.hardik.apartment.repository.UnitRepository;
 
 
-
+// croosOrigin is required when we uploaded on heroku
 @CrossOrigin
 @RestController
 @RequestMapping(value = "/hardik/apartment/api/v1")
@@ -90,19 +90,6 @@ public class ApartmentRestController {
 	          return unitRepository.save(newUnit);
 	      });
 	  }
-	          
-	       //   @PutMapping("/employees/{id}")
-	      //  Employee updateEmployee(@RequestBody Employee newEmployee, @PathVariable Long id) {
-	      //
-//	            return employeeRepository.findById(id).map(employee -> {
-//	                employee.setFirstName(newEmployee.getFirstName());
-//	                employee.setLastName(newEmployee.getLastName());
-//	                employee.setEmail(newEmployee.getEmail());
-//	                return employeeRepository.save(employee);
-//	            }).orElseGet(() -> {
-//	                newEmployee.setId(id);
-//	                return employeeRepository.save(newEmployee);
-//	            });
-	      //  }
+	  
 
 }

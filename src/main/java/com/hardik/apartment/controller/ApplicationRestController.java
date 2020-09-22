@@ -87,7 +87,7 @@ public class ApplicationRestController {
 	
 	    return applicationRepository.findById(id).map(application -> {
 	          application.setFirstName(newApplication.getFirstName());
-          application.setLastName(newApplication.getLastName());
+              application.setLastName(newApplication.getLastName());
 	          application.setEmail(newApplication.getEmail());
 	          application.setPhone(newApplication.getPhone());
 	          application.setApartmentType(newApplication.getApartmentType());
