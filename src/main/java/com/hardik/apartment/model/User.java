@@ -16,7 +16,7 @@ public class User {
 	@Id
 	@GeneratedValue
 	@Column(name="userId")
-	private long id;
+	private Long id;
 	
 	@Column(name="UserEmail")
 	private String email;
@@ -24,19 +24,19 @@ public class User {
 	@Column(name="UserPassword")
 	private String password;
 	
+	public User() {};
 	
 	
-	
-	public User(long id, String email, String password) {
+	public User(Long id, String email, String password) {
 		super();
 		this.id = id;
 		this.email = email;
 		this.password = password;
 	}
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getEmail() {
